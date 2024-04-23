@@ -98,6 +98,15 @@ object TVList {
         update()
     }
 
+    private fun findTvByName(name:String,tvlist:List<TV>):TV?{
+        for (tv in tvlist){
+            if (tv.title == name) {
+                return tv
+            }
+        }
+        return null
+    }
+
     private fun str2List(str: String) {
         var string = str
         val g = Gua()
@@ -170,20 +179,36 @@ object TVList {
                             group = trimmedLine.split(',', limit = 2)[0].trim()
                         } else {
                             val arr = trimmedLine.split(',').map { it.trim() }
-                            val tv = TV(
-                                0,
-                                "",
-                                arr.first(),
-                                "",
-                                "",
-                                "",
-                                arr.drop(1),
-                                mapOf(),
-                                group,
-                                listOf(),
-                            )
+                            var name=arr.first()
+                            var url=arr.drop(1)
 
-                            l.add(tv)
+                            var tv=findTvByName(name,l)
+                            if (tv==null) {
+                                tv = TV(
+                                    0,
+                                    arr.first(),
+                                    arr.first(),
+                                    "",
+                                    "",
+                                    "",
+                                    arr.drop(1),
+                                    mapOf(),
+                                    group,
+                                    listOf(),
+                                )
+
+                                l.add(tv)
+                            }else {
+                                var uris = mutableListOf<String>()
+                                uris.add(url.first())
+                                tv.uris.forEach { u ->
+                                    run {
+                                        uris.add(u)
+                                    }
+                                    tv.uris = uris.toList()
+                                }
+                            }
+
                         }
                     }
                 }

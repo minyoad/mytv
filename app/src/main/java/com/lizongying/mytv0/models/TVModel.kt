@@ -53,6 +53,11 @@ class TVModel(var tv: TV) : ViewModel() {
     fun getProgramCurrent():Program?{
         return Program(0,"精彩节目","")
     }
+
+    fun getUriSize():Int{
+        return tv.uris.size;
+    }
+
     private val _ready = MutableLiveData<Boolean>()
     val ready: LiveData<Boolean>
         get() = _ready

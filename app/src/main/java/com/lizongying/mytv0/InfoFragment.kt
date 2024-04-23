@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.lizongying.mytv0.databinding.InfoBinding
 import com.lizongying.mytv0.models.TVModel
+import java.time.LocalTime
 
 
 class InfoFragment : Fragment() {
@@ -75,6 +76,11 @@ class InfoFragment : Fragment() {
         }
 
         binding.infoDescNext.text="下一节目："+program?.title
+
+        binding.sourceInfo.text="线路 "+tvViewModel.videoIndex.value+"/"+tvViewModel.getUriSize().toString()
+
+//        val now = LocalTime.now()
+//        binding.timeInfo.text=now.hour+ ":"+now.minute
 
         handler.removeCallbacks(removeRunnable)
         view?.visibility = View.VISIBLE
