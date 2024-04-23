@@ -82,16 +82,16 @@ class SettingFragment : Fragment() {
             (activity as MainActivity).settingActive()
         }
 
-        binding.appreciate.setOnClickListener {
-            val imageModalFragment = AppreciateModalFragment()
-
-            val args = Bundle()
-            args.putInt(AppreciateModalFragment.KEY, R.drawable.appreciate)
-            imageModalFragment.arguments = args
-
-            imageModalFragment.show(requireFragmentManager(), AppreciateModalFragment.TAG)
-            (activity as MainActivity).settingActive()
-        }
+//        binding.appreciate.setOnClickListener {
+//            val imageModalFragment = AppreciateModalFragment()
+//
+//            val args = Bundle()
+//            args.putInt(AppreciateModalFragment.KEY, R.drawable.appreciate)
+//            imageModalFragment.arguments = args
+//
+//            imageModalFragment.show(requireFragmentManager(), AppreciateModalFragment.TAG)
+//            (activity as MainActivity).settingActive()
+//        }
 
         binding.setting.setOnClickListener {
             hideSelf()

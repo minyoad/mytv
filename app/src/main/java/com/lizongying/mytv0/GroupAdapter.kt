@@ -112,12 +112,12 @@ class GroupAdapter(
 
         fun focus(hasFocus: Boolean) {
             if (hasFocus) {
-                binding.textView.setTextColor(ContextCompat.getColor(context, R.color.white))
+                binding.textView.setTextColor(ContextCompat.getColor(context, R.color.focus))
             } else {
                 binding.textView.setTextColor(
                     ContextCompat.getColor(
                         context,
-                        R.color.description_blur
+                        R.color.white
                     )
                 )
             }

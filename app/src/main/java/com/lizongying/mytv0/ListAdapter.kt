@@ -128,50 +128,55 @@ class ListAdapter(
 
         fun bindImage(url: String?, id: Int) {
             if (url.isNullOrBlank()) {
-                val width = Utils.dpToPx(40)
-                val height = Utils.dpToPx(40)
-                val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
-                val canvas = Canvas(bitmap)
-
-                val paint = Paint().apply {
-                    color = Color.WHITE
-                    textSize = 32f
-                    textAlign = Paint.Align.CENTER
-                }
-                val text = "${id + 1}"
-                val x = width / 2f
-                val y = height / 2f - (paint.descent() + paint.ascent()) / 2
-                canvas.drawText(text, x, y, paint)
-                Glide.with(context)
-                    .load(BitmapDrawable(context.resources, bitmap))
-                    .centerInside()
-                    .into(binding.imageView)
-//                binding.imageView.setImageDrawable(null)
+//                val width = Utils.dpToPx(40)
+//                val height = Utils.dpToPx(40)
+//                val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+//                val canvas = Canvas(bitmap)
+//
+//                val paint = Paint().apply {
+//                    color = Color.WHITE
+//                    textSize = 32f
+//                    textAlign = Paint.Align.CENTER
+//                }
+//                val text = "${id + 1}"
+//                val x = width / 2f
+//                val y = height / 2f - (paint.descent() + paint.ascent()) / 2
+//                canvas.drawText(text, x, y, paint)
+//                Glide.with(context)
+//                    .load(BitmapDrawable(context.resources, bitmap))
+//                    .centerInside()
+//                    .into(binding.imageView)
+                binding.imageView.setImageDrawable(null)
+                binding.imageView.visibility=View.GONE
             } else {
                 Glide.with(context)
                     .load(url)
                     .centerInside()
 //                    .error(BitmapDrawable(context.resources, bitmap))
                     .into(binding.imageView)
+
+                binding.imageView.visibility=View.VISIBLE
             }
+
+            binding.channelId.text= id.toString()
         }
 
         fun focus(hasFocus: Boolean) {
             if (hasFocus) {
-                binding.textView.setTextColor(ContextCompat.getColor(context, R.color.white))
-                binding.description.setTextColor(ContextCompat.getColor(context, R.color.white))
+                binding.textView.setTextColor(ContextCompat.getColor(context, R.color.focus))
+                binding.description.setTextColor(ContextCompat.getColor(context, R.color.focus))
 //                binding.root.alpha = 1.0F
-                binding.root.setBackgroundResource(R.color.focus)
+//                binding.root.setBackgroundResource(R.color.focus)
             } else {
-                binding.textView.setTextColor(ContextCompat.getColor(context, R.color.title_blur))
+                binding.textView.setTextColor(ContextCompat.getColor(context, R.color.white))
                 binding.description.setTextColor(
                     ContextCompat.getColor(
                         context,
-                        R.color.description_blur
+                        R.color.white
                     )
                 )
 //                binding.root.alpha = 0.8F
-                binding.root.setBackgroundResource(R.color.blur)
+//                binding.root.setBackgroundResource(R.color.blur)
             }
         }
     }

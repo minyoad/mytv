@@ -49,7 +49,7 @@ fun getVersionCode(): Int {
             arr[0].toInt() * 16777216 + arr[1].toInt() * 65536 + arr[2].toInt() * 256 + arr[3].toInt()
         versionCode
     } catch (ignored: Exception) {
-        0
+        1
     }
 }
 
