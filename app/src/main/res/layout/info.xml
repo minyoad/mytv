@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/info_fragment"
-    android:layout_width="320dp"
-    android:layout_height="80dp"
+    android:layout_width="520dp"
+    android:layout_height="100dp"
     android:layout_gravity="center_horizontal|bottom"
     android:layout_marginBottom="20dp"
     android:background="@drawable/rounded_background">
@@ -11,11 +11,13 @@
         android:id="@+id/info_logo"
         android:layout_width="100dp"
         android:layout_height="60dp"
-        android:layout_marginTop="8dp"
+        android:layout_margin="8dp"
+        android:scaleType="centerCrop"
+        android:background="#00000000"
         android:padding="10dp" />
 
     <LinearLayout
-        android:layout_width="216dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="100dp"
         android:background="#FF263238"
@@ -26,19 +28,34 @@
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_gravity="start"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
             android:gravity="start"
             android:textColor="#FFEEEEEE"
             android:textSize="22sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#CC808080"/>
 
         <TextView
             android:id="@+id/info_desc"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_gravity="start"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="2dp"
+            android:gravity="start"
+            android:singleLine="true"
+            android:textColor="@color/focus"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/info_desc_next"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="start"
+            android:layout_marginTop="2dp"
             android:gravity="start"
             android:singleLine="true"
             android:textColor="#B3EEEEEE"

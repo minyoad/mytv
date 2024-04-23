@@ -34,7 +34,7 @@ class InfoFragment : Fragment() {
     }
 
     fun show(tvViewModel: TVModel) {
-        binding.textView.text = tvViewModel.tv.title
+        binding.textView.text = tvViewModel.tv.id.toString() + "    "+tvViewModel.tv.title
 
         when (tvViewModel.tv.title) {
             else -> {
@@ -61,7 +61,7 @@ class InfoFragment : Fragment() {
                 } else {
                     Glide.with(this)
                         .load(tvViewModel.tv.logo)
-//                        .centerInside()
+                        .centerInside()
                         .into(binding.infoLogo)
                 }
 
@@ -69,10 +69,12 @@ class InfoFragment : Fragment() {
             }
         }
 
-//        val program = tvViewModel.getProgramOne()
-//        if (program != null) {
-//            binding.infoDesc.text = program.name
-//        }
+        val program = tvViewModel.getProgramCurrent()
+        if (program != null) {
+            binding.infoDesc.text = "正在播放："+program.title
+        }
+
+        binding.infoDescNext.text="下一节目："+program?.title
 
         handler.removeCallbacks(removeRunnable)
         view?.visibility = View.VISIBLE

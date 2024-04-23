@@ -50,6 +50,9 @@ class TVModel(var tv: TV) : ViewModel() {
         return tv.uris[_videoIndex.value!!]
     }
 
+    fun getProgramCurrent():Program?{
+        return Program(0,"精彩节目","")
+    }
     private val _ready = MutableLiveData<Boolean>()
     val ready: LiveData<Boolean>
         get() = _ready
