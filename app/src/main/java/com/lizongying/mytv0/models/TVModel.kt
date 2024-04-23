@@ -91,6 +91,16 @@ class TVModel(var tv: TV) : ViewModel() {
         )
     }
 
+    fun next() {
+//        TODO("Not yet implemented")
+        if (_videoIndex.value!!<tv.uris.size-1){
+            _videoIndex.value= _videoIndex.value!! +1
+        }else{
+            _videoIndex.value=0
+        }
+    }
+
+
     companion object {
         private const val TAG = "TVModel"
     }

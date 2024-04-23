@@ -121,6 +121,7 @@ class PlayerFragment : Fragment(), SurfaceHolder.Callback {
 
                         override fun onPlayerError(error: PlaybackException) {
                             super.onPlayerError(error)
+                            tvModel?.next()
                             tvModel?.setReady()
                         }
                     })
