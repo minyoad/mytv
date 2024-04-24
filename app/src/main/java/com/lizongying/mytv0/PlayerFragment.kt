@@ -25,6 +25,9 @@ import androidx.media3.exoplayer.DefaultRenderersFactory
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.mediacodec.MediaCodecSelector
 import androidx.media3.exoplayer.mediacodec.MediaCodecUtil
+import androidx.media3.exoplayer.rtsp.RtspMediaSource
+import androidx.media3.exoplayer.source.MediaSource
+import androidx.media3.exoplayer.util.EventLogger
 import com.google.android.exoplayer2.Player.DISCONTINUITY_REASON_PERIOD_TRANSITION
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.lizongying.mytv0.databinding.PlayerBinding
@@ -186,8 +189,19 @@ class PlayerFragment : Fragment(), SurfaceHolder.Callback {
 //                MediaItem.fromUri(videoUrl)
 //            )
 //            setMediaSource(hlsMediaSource)
+//            addAnalyticsListener(EventLogger())
+            if(videoUrl.startsWith("rtsp://")){
+                // Create an RTSP media source pointing to an RTSP uri.
+                val mediaSource: MediaSource =
+                    RtspMediaSource.Factory()
+                        .setDebugLoggingEnabled(true)
+                        .setTimeoutMs(4)
+                        .createMediaSource(MediaItem.fromUri(videoUrl))
+                setMediaSource(mediaSource)
+            }else{
+                setMediaItem(MediaItem.fromUri(videoUrl))
+            }
 
-            setMediaItem(MediaItem.fromUri(videoUrl))
             prepare()
         }
         exoPlayer?.run {

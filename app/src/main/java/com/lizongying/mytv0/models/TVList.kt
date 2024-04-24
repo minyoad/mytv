@@ -52,6 +52,8 @@ object TVList {
             file.deleteOnExit()
             Toast.makeText(context, "读取频道失败，请在菜单中进行设置", Toast.LENGTH_LONG).show()
         }
+
+        update()
     }
 
     private fun update() {

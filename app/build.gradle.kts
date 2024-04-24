@@ -91,6 +91,8 @@ dependencies {
     implementation("com.google.android.exoplayer:exoplayer-ui:$exoplayerVersion")
     implementation("com.google.android.exoplayer:exoplayer-core:$exoplayerVersion")
     implementation("com.google.android.exoplayer:exoplayer-hls:$exoplayerVersion")
+    implementation("com.google.android.exoplayer:exoplayer-dash:$exoplayerVersion")
+
 
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0-RC")
