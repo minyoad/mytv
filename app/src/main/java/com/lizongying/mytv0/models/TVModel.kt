@@ -91,14 +91,25 @@ class TVModel(var tv: TV) : ViewModel() {
         )
     }
 
-    fun next() {
-//        TODO("Not yet implemented")
+    fun nextUri() {
         if (_videoIndex.value!!<tv.uris.size-1){
-            _videoIndex.value= _videoIndex.value!! +1
+            _videoIndex.value=_videoIndex.value!!+1
         }else{
             _videoIndex.value=0
         }
+        _videoUrl.value = getVideoUrl()
     }
+
+    fun prevUri() {
+        if (_videoIndex.value!!>tv.uris.size-1){
+            _videoIndex.value=_videoIndex.value!!-1
+        }else{
+            _videoIndex.value=0
+        }
+
+        _videoUrl.value = getVideoUrl()
+    }
+
 
 
     companion object {

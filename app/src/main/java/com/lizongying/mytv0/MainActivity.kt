@@ -17,7 +17,7 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import com.lizongying.mytv0.models.TVList
-
+import com.lizongying.mytv0.models.TVModel
 
 class MainActivity : FragmentActivity() {
 
@@ -227,6 +227,18 @@ class MainActivity : FragmentActivity() {
             position = TVList.size() - 1
         }
         TVList.setPosition(position)
+    }
+
+    fun nextUri(){
+        val tvmodel=TVList.getTVModelCurrent()
+        tvmodel.nextUri()
+        play(TVList.position.value!!)
+    }
+
+    fun prevUri(){
+        val tvmodel=TVList.getTVModelCurrent()
+        tvmodel.prevUri()
+        play(TVList.position.value!!)
     }
 
     fun next() {
@@ -495,12 +507,14 @@ class MainActivity : FragmentActivity() {
             }
 
             KeyEvent.KEYCODE_DPAD_LEFT -> {
-                showMenu()
+                prevUri()
+//                showMenu()
 //                return true
             }
 
             KeyEvent.KEYCODE_DPAD_RIGHT -> {
-                showSetting()
+                nextUri()
+//                showSetting()
 //                return true
             }
         }

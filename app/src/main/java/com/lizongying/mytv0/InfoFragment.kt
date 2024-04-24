@@ -77,7 +77,7 @@ class InfoFragment : Fragment() {
 
         binding.infoDescNext.text="下一节目："+program?.title
 
-        binding.sourceInfo.text="线路 "+tvViewModel.videoIndex.value+"/"+tvViewModel.getUriSize().toString()
+        binding.sourceInfo.text="线路 "+(tvViewModel.videoIndex.value!!+1)+"/"+tvViewModel.getUriSize().toString()
 
 //        val now = LocalTime.now()
 //        binding.timeInfo.text=now.hour+ ":"+now.minute

@@ -200,13 +200,14 @@ object TVList {
                                 l.add(tv)
                             }else {
                                 var uris = mutableListOf<String>()
-                                uris.add(url.first())
                                 tv.uris.forEach { u ->
                                     run {
                                         uris.add(u)
                                     }
-                                    tv.uris = uris.toList()
                                 }
+                                uris.add(url.first())
+                                tv.uris = uris.toList()
+
                             }
 
                         }

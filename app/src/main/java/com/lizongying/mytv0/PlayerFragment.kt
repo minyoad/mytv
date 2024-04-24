@@ -122,7 +122,8 @@ class PlayerFragment : Fragment(), SurfaceHolder.Callback {
                         override fun onPlayerError(error: PlaybackException) {
                             super.onPlayerError(error)
 //                            Log.d(TAG,"player error",error)
-                            tvModel?.next()
+                            //play error, try next uri of the same channel
+                            tvModel?.nextUri()
                             play(tvModel!!)
                             tvModel?.setReady()
                         }
