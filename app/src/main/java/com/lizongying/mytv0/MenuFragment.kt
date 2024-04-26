@@ -116,7 +116,7 @@ class MenuFragment : Fragment(), GroupAdapter.ItemListener, ListAdapter.ItemList
                     Toast.makeText(context, "暂无频道", Toast.LENGTH_LONG).show()
                     return true
                 }
-                binding.group.visibility = GONE
+//                binding.group.visibility = GONE
                 groupAdapter.focusable(false)
                 listAdapter.focusable(true)
                 listAdapter.toPosition(listAdapter.tvListModel.position.value!!)
