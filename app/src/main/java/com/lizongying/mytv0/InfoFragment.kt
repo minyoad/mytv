@@ -50,7 +50,7 @@ class InfoFragment : Fragment() {
                         textSize = 100f
                         textAlign = Paint.Align.CENTER
                     }
-                    val text = "${tvViewModel.tv.id + 1}"
+                    val text = "${tvViewModel.tv.id}"
                     val x = width / 2f
                     val y = height / 2f - (paint.descent() + paint.ascent()) / 2
                     canvas.drawText(text, x, y, paint)

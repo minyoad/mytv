@@ -507,15 +507,18 @@ class MainActivity : FragmentActivity() {
             }
 
             KeyEvent.KEYCODE_DPAD_LEFT -> {
-                prevUri()
+                if (menuFragment.isHidden && settingFragment.isHidden) {
+                    prevUri()
+                }
 //                showMenu()
 //                return true
             }
 
             KeyEvent.KEYCODE_DPAD_RIGHT -> {
-                nextUri()
-//                showSetting()
+                if (menuFragment.isHidden && settingFragment.isHidden) {
+                    nextUri()
 //                return true
+                }
             }
         }
         return false
