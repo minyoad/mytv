@@ -126,7 +126,14 @@ class PlayerFragment : Fragment(), SurfaceHolder.Callback {
                             super.onPlayerError(error)
 //                            Log.d(TAG,"player error",error)
                             //play error, try next uri of the same channel
-                            tvModel?.nextUri()
+                            if(tvModel?.retryTimes!!<tvModel?.retryMaxTimes!!){
+                                Log.i(TAG,"play error,retryTimes:"+tvModel?.retryTimes)
+                                tvModel?.retryTimes=tvModel?.retryTimes!!+1
+                            }else{
+                                Log.d(TAG,"retry over "+tvModel?.retryTimes!!+",try next uri")
+                                tvModel?.retryTimes=0
+                                tvModel?.nextUri()
+                            }
                             play(tvModel!!)
                             tvModel?.setReady()
                         }
